@@ -25,32 +25,26 @@ until the app earns (Expo builds free tier, GitHub free).
 
 ---
 
-## STEP 1 — Put the code on GitHub
+## STEP 1 — The code on GitHub (DONE 2026-10-25)
 
-My GitHub connection can push code but cannot create repositories
-(same limitation as your other projects), so the repo creation is
-your one move here:
+**Live: https://github.com/robcarv00-jpg/trueedge** (public).
 
-1. Go to github.com, sign in as **robcarv00-jpg**.
-2. Top right: **+** → **New repository**.
-3. Name it exactly: `trueedge`
-4. Set it to **Public**. Do NOT check "Add a README" (the folder
-   already has everything; an empty repo avoids conflicts).
-5. Click **Create repository**.
-6. Tell me "the trueedge repo is up" and I push all of this to it.
+The repo exists and the full project is pushed: app source, engine,
+docs, and brand assets. My GitHub connection cannot create
+repositories (403), so the empty repo was created in Robert's
+signed-in browser session; the code itself was pushed through the
+connection as snapshot commits.
 
-To do it yourself instead, run these in a terminal inside this folder:
+For future changes, the flow is: tell me what changed and I push it,
+or from a terminal inside this folder:
 
 ```
-git remote add origin https://github.com/robcarv00-jpg/trueedge.git
-git push -u origin main
+git add -A
+git commit -m "what changed"
 ```
 
-(The local git repo is already initialized and committed for you.)
-
-After the push, the repo is your backup and your store-submission
-paper trail. Every future change: edit, then `git add -A`,
-`git commit -m "what changed"`, `git push`. Or just tell me to do it.
+then ask me to push (plain `git push` needs your own GitHub login on
+that machine; the connection push runs through me).
 
 ## STEP 2 — Run it on your phone today (free, 15 minutes)
 
