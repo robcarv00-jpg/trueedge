@@ -64,7 +64,7 @@ export function sha256hex(text: string): string {
 }
 
 export function hmacSha256hex(key: string, message: string): string {
-  let k = te.encode(key);
+  let k: Uint8Array = te.encode(key); // ArrayBufferLike: TS 5.9 generic Uint8Array
   if (k.length > 64) k = sha256Bytes(k);
   const block = new Uint8Array(64);
   block.set(k);

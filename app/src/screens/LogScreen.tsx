@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Alert, ScrollView, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import * as DocumentPicker from 'expo-document-picker';
-import * as FileSystem from 'expo-file-system';
+import * as FileSystem from 'expo-file-system/legacy';
 import { useApp } from '../state';
 import { Screen, H1, Label, Card , BrandHeader} from '../ui';
 import { importJournalCsv } from '../core/csv';
