@@ -10,7 +10,7 @@ import { colors, MIN_TOUCH, radius, type } from '../theme';
 // Where the single-file verifier lives once hosted (LAUNCH_PLAN: the
 // permalink page). Until then the link still works from any local copy
 // of carver-receipt-verifier.html opened with the same fragment.
-const VERIFIER_URL = 'https://carver.example/verifier.html';
+const VERIFIER_URL = 'https://robcarv00-jpg.github.io/trueedge/verifier.html';
 
 /** PRO tier — seal the Mirror report as a Carver Receipt.
  *  Sealing is Pro; verification is free for anyone, forever, because a
