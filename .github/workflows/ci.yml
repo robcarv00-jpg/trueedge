@@ -1,0 +1,22 @@
+name: TrueEdge CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install --no-audit --no-fund
+      - name: Typecheck the whole app
+        run: npx tsc --noEmit
+      - name: Engine parity suite (must match the Python reference)
+        run: npx tsc -p tsconfig.core.json && node tests/parity.mjs
