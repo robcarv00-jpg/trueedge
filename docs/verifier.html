@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Carver Receipt Verifier</title>
+<style>
+  :root { --bg:#0c0d10; --panel:#15171c; --line:#262a33; --txt:#e8e9ec; --dim:#9aa1ad;
+          --ok:#34c759; --bad:#ff453a; --warn:#ffb340; --unk:#8e8e93; --stale:#bf5af2; --acc:#d4af37; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--txt); font:15px/1.5 -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  main { max-width:820px; margin:0 auto; padding:32px 18px 64px; }
+  h1 { font-size:24px; margin:0 0 4px; letter-spacing:.4px; }
+  h1 span { color:var(--acc); }
+  .sub { color:var(--dim); margin:0 0 22px; }
+  #drop { border:1.5px dashed var(--line); border-radius:12px; padding:30px 18px; text-align:center;
+          background:var(--panel); cursor:pointer; transition:border-color .15s; }
+  #drop:hover, #drop.over { border-color:var(--acc); }
+  #drop p { margin:4px 0; color:var(--dim); }
+  textarea { width:100%; min-height:110px; margin-top:14px; background:var(--panel); color:var(--txt);
+             border:1px solid var(--line); border-radius:10px; padding:10px; font:12px/1.45 ui-monospace, Menlo, monospace; }
+  .row { display:flex; gap:10px; margin-top:12px; flex-wrap:wrap; }
+  input[type=text] { flex:1; min-width:220px; background:var(--panel); color:var(--txt);
+                     border:1px solid var(--line); border-radius:10px; padding:10px; }
+  button { background:var(--acc); color:#111; border:0; border-radius:10px; padding:10px 22px;
+           font-weight:700; cursor:pointer; }
+  #verdict { margin-top:22px; border-radius:12px; padding:16px 18px; display:none; font-weight:600; }
+  #verdict.ok { background:#0f2d1a; border:1px solid var(--ok); }
+  #verdict.fail { background:#33110f; border:1px solid var(--bad); }
+  #verdict.partial { background:#33270d; border:1px solid var(--warn); }
+  .meta { color:var(--dim); font-weight:400; font-size:13px; margin-top:6px; word-break:break-all; }
+  .claim { background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:12px 14px; margin-top:10px; }
+  .chip { display:inline-block; font-size:11px; font-weight:800; letter-spacing:.6px; padding:2px 8px;
+          border-radius:99px; margin-right:8px; vertical-align:2px; }
+  .verified { background:var(--ok); color:#06280f; } .unverified { background:var(--unk); color:#111; }
+  .contested { background:var(--bad); color:#2b0705; } .stale { background:var(--stale); color:#21062e; }
+  .opinion { background:var(--warn); color:#2e2103; }
+  .ev { color:var(--dim); font-size:13px; margin:6px 0 0 14px; }
+  footer { color:var(--dim); font-size:12.5px; margin-top:30px; }
+  code { color:var(--acc); }
+</style>
+</head>
+<body>
+<main>
+  <h1>CARVER <span>RECEIPT VERIFIER</span></h1>
+  <p class="sub">Verify a <code>carver-receipt/v1</code> receipt entirely in your browser.
+     Nothing is uploaded. No account, no server, works offline — save this file and keep it.</p>
+
+  <div id="drop" tabindex="0">
+    <strong>Drop a receipt (.json) here</strong>
+    <p>or click to choose a file, or paste the JSON below</p>
+    <input type="file" id="file" accept=".json,application/json" hidden>
+  </div>
+
+  <textarea id="paste" placeholder='Paste receipt JSON here, e.g. {"format":"carver-receipt/v1", ...}'></textarea>
+  <div class="row">
+    <input type="text" id="key" placeholder="HMAC key (only needed for mode=hmac receipts)">
+    <button id="go">Verify receipt</button>
+    <button id="share" disabled>Copy share link</button>
+  </div>
+  <p class="sub">A share link carries the receipt in the part of the URL after the
+     <code>#</code> — it is never sent to any server. Anyone who opens the link
+     sees the verdict in their browser, no app, no account. Verification is free
+     forever because a seal that only paying parties can check isn't a seal.</p>
+
+  <div id="verdict"></div>
+  <div id="claims"></div>
+
+  <footer>
+    What this proves: the claims, issuer, subject and meta in the receipt are exactly what was
+    sealed (Merkle root + receipt digest), and — for <code>hmac</code> mode with the right key, or
+    <code>ed25519</code> mode with the public key printed on the receipt — that the named issuer
+    sealed them. <code>detached</code> mode proves integrity only, never who issued it.
+    <code>flagged</code> receipts were exported unsigned because too many claims were unverified.
+  </footer>
+</main>
+
+<script id="core">
+"use strict";
+/* ===== Carver Receipt core verifier (shared by the page and the node test) =====
+   Canonical JSON must byte-match Python's json.dumps(sort_keys=True,
+   separators=(",", ":"), ensure_ascii=True). */
+
+function canonStr(s) {
+  let out = '"';
+  for (let i = 0; i < s.length; i++) {
+    const c = s.charCodeAt(i);
+    if (c === 0x22) out += '\\"';
+    else if (c === 0x5c) out += '\\\\';
+    else if (c === 0x08) out += '\\b';
+    else if (c === 0x0c) out += '\\f';
+    else if (c === 0x0a) out += '\\n';
+    else if (c === 0x0d) out += '\\r';
+    else if (c === 0x09) out += '\\t';
+    else if (c < 0x20 || c > 0x7e) out += '\\u' + c.toString(16).padStart(4, '0');
+    else out += s[i];
+  }
+  return out + '"';
+}
+
+function canon(v) {
+  if (v === null) return 'null';
+  if (typeof v === 'boolean') return v ? 'true' : 'false';
+  if (typeof v === 'number') return Number.isInteger(v) ? String(v) : String(v);
+  if (typeof v === 'string') return canonStr(v);
+  if (Array.isArray(v)) return '[' + v.map(canon).join(',') + ']';
+  const keys = Object.keys(v).sort();
+  return '{' + keys.map(k => canonStr(k) + ':' + canon(v[k])).join(',') + '}';
+}
+
+const te = new TextEncoder();
+function hexToBytes(hex) {
+  const b = new Uint8Array(hex.length / 2);
+  for (let i = 0; i < b.length; i++) b[i] = parseInt(hex.substr(i * 2, 2), 16);
+  return b;
+}
+function bytesToHex(buf) {
+  return [...new Uint8Array(buf)].map(x => x.toString(16).padStart(2, '0')).join('');
+}
+async function sha256hex(text) {
+  const h = await crypto.subtle.digest('SHA-256', te.encode(text));
+  return bytesToHex(h);
+}
+
+async function merkleRoot(claims) {
+  let level = [];
+  for (const c of claims) level.push(await sha256hex(canon(c)));
+  if (!level.length) return sha256hex('EMPTY');
+  while (level.length > 1) {
+    if (level.length % 2) level.push(level[level.length - 1]);
+    const next = [];
+    for (let i = 0; i < level.length; i += 2) next.push(await sha256hex(level[i] + level[i + 1]));
+    level = next;
+  }
+  return level[0];
+}
+
+async function receiptDigest(d, root) {
+  return sha256hex(canon({
+    format: d.format || 'carver-receipt/v1',
+    issuer: d.issuer, subject: d.subject, created_at: d.created_at,
+    meta: d.meta || {}, merkle_root: root,
+  }));
+}
+
+/* Returns {status: "ok"|"fail"|"partial", msg, root} */
+async function verifyReceipt(d, key) {
+  if (!d || d.format !== 'carver-receipt/v1')
+    return { status: 'fail', msg: 'Not a carver-receipt/v1 receipt.', root: '' };
+  const root = await merkleRoot(d.claims || []);
+  if (root !== d.merkle_root)
+    return { status: 'fail', root, msg: 'MERKLE MISMATCH — a claim was altered after sealing. recomputed ' + root.slice(0, 12) + '… ≠ sealed ' + String(d.merkle_root).slice(0, 12) + '…' };
+  let payload = root;
+  if (d.receipt_digest) {
+    const digest = await receiptDigest(d, root);
+    if (digest !== d.receipt_digest)
+      return { status: 'fail', root, msg: 'RECEIPT DIGEST MISMATCH — the issuer, subject, date, or meta was altered after sealing.' };
+    payload = digest;
+  }
+  const mode = d.mode || 'detached';
+  if (mode === 'hmac') {
+    if (!key) return { status: 'fail', root, msg: 'This is an HMAC receipt — enter the shared key to verify the signature.' };
+    try {
+      const k = await crypto.subtle.importKey('raw', te.encode(key), { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']);
+      const sig = bytesToHex(await crypto.subtle.sign('HMAC', k, te.encode(payload)));
+      if (sig !== d.signature)
+        return { status: 'fail', root, msg: 'HMAC SIGNATURE MISMATCH — wrong key, or the receipt was forged.' };
+      return { status: 'ok', root, msg: 'VERIFIED — integrity and issuer (HMAC, key holders only). root ' + root.slice(0, 12) + '…' };
+    } catch (e) { return { status: 'fail', root, msg: 'HMAC check failed in this browser: ' + e.message }; }
+  }
+  if (mode === 'ed25519') {
+    try {
+      const pub = await crypto.subtle.importKey('raw', hexToBytes(d.public_key || ''), { name: 'Ed25519' }, false, ['verify']);
+      const good = await crypto.subtle.verify({ name: 'Ed25519' }, pub, hexToBytes(d.signature || ''), te.encode(payload));
+      if (!good) return { status: 'fail', root, msg: 'ED25519 SIGNATURE MISMATCH — forged, or signed by a different key.' };
+      return { status: 'ok', root, msg: 'VERIFIED — integrity and issuer (Ed25519, public key on the receipt). root ' + root.slice(0, 12) + '…' };
+    } catch (e) {
+      return { status: 'partial', root, msg: 'INTEGRITY VERIFIED (Merkle root + digest match). This browser cannot check Ed25519 signatures (' + e.message + ') — use a current Chrome/Edge, or the Python verifier, for the signature check.' };
+    }
+  }
+  if (mode === 'flagged')
+    return { status: 'partial', root, msg: 'INTEGRITY VERIFIED, but this receipt was FLAGGED, not signed — too many claims were unverified when it was issued. Do not trust its stamp.' };
+  return { status: 'partial', root, msg: 'INTEGRITY VERIFIED (detached mode). This proves nothing changed since sealing — it does not prove who issued it.' };
+}
+</script>
+
+<script>
+"use strict";
+const $ = id => document.getElementById(id);
+const verdictEl = $('verdict'), claimsEl = $('claims');
+
+function esc(s) { return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+let lastReceiptText = null;
+
+function encodeReceiptLink(text) {
+  const bytes = new TextEncoder().encode(text);
+  let bin = '';
+  bytes.forEach(b => { bin += String.fromCharCode(b); });
+  return btoa(bin).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+}
+function decodeReceiptLink(payload) {
+  const b64 = payload.replace(/-/g, '+').replace(/_/g, '/');
+  const bin = atob(b64 + '='.repeat((4 - b64.length % 4) % 4));
+  const bytes = Uint8Array.from(bin, c => c.charCodeAt(0));
+  return new TextDecoder().decode(bytes);
+}
+
+async function run(text) {
+  claimsEl.innerHTML = '';
+  let d;
+  try { d = JSON.parse(text); }
+  catch (e) { show('fail', 'That is not valid JSON: ' + e.message, null); return; }
+  lastReceiptText = text;
+  const shareBtn = $('share');
+  if (shareBtn) shareBtn.disabled = false;
+  const res = await verifyReceipt(d, $('key').value.trim() || null);
+  show(res.status, res.msg, d);
+  renderClaims(d);
+}
+function show(status, msg, d) {
+  verdictEl.style.display = 'block';
+  verdictEl.className = status === 'ok' ? 'ok' : status === 'fail' ? 'fail' : 'partial';
+  verdictEl.id = 'verdict';
+  let meta = '';
+  if (d) meta = '<div class="meta">issuer: ' + esc(d.issuer || '') + ' · subject: ' + esc(d.subject || '') +
+    ' · created: ' + esc(d.created_at || '') + ' · mode: ' + esc(d.mode || 'detached') +
+    '<br>merkle: ' + esc(d.merkle_root || '') + (d.public_key ? '<br>public key: ' + esc(d.public_key) : '') + '</div>';
+  verdictEl.innerHTML = esc(msg) + meta;
+}
+function renderClaims(d) {
+  if (!d.claims) return;
+  claimsEl.innerHTML = d.claims.map(c => {
+    const ev = (c.evidence || []).map(e =>
+      '<div class="ev">← ' + esc(e.source) + ' (' + esc(e.retrieved_at) + ', ' + esc(e.independence || 'vendor') + ')</div>').join('');
+    return '<div class="claim"><span class="chip ' + esc(c.status) + '">' + esc(c.status.toUpperCase()) + '</span>' +
+      esc(c.id) + ' · ' + esc(c.text) + ev + '</div>';
+  }).join('');
+}
+
+const drop = $('drop'), fileInput = $('file');
+drop.addEventListener('click', () => fileInput.click());
+drop.addEventListener('dragover', e => { e.preventDefault(); drop.classList.add('over'); });
+drop.addEventListener('dragleave', () => drop.classList.remove('over'));
+drop.addEventListener('drop', e => {
+  e.preventDefault(); drop.classList.remove('over');
+  const f = e.dataTransfer.files[0];
+  if (f) f.text().then(t => { $('paste').value = t; run(t); });
+});
+fileInput.addEventListener('change', () => {
+  const f = fileInput.files[0];
+  if (f) f.text().then(t => { $('paste').value = t; run(t); });
+});
+$('go').addEventListener('click', () => {
+  const t = $('paste').value.trim();
+  if (t) run(t); else show('fail', 'Drop a receipt file or paste its JSON first.', null);
+});
+if (typeof window !== 'undefined') {
+  const shareBtn = $('share');
+  if (shareBtn) shareBtn.addEventListener('click', async () => {
+    if (!lastReceiptText) return;
+    const link = location.href.split('#')[0] + '#r=' + encodeReceiptLink(lastReceiptText);
+    try { await navigator.clipboard.writeText(link); shareBtn.textContent = 'Link copied'; }
+    catch (e) { window.prompt('Copy your share link:', link); }
+    setTimeout(() => { shareBtn.textContent = 'Copy share link'; }, 2000);
+  });
+  if (location.hash.startsWith('#r=')) {
+    try {
+      const text = decodeReceiptLink(location.hash.slice(3));
+      $('paste').value = text;
+      run(text);
+    } catch (e) { show('fail', 'That share link could not be decoded: ' + e.message, null); }
+  }
+}
+</script>
+</body>
+</html>
