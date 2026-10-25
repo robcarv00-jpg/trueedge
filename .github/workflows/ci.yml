@@ -12,6 +12,12 @@ jobs:
         working-directory: app
     steps:
       - uses: actions/checkout@v4
+      - name: No placeholder URLs in app source
+        run: |
+          if grep -rn "carver.example" "${{ github.workspace }}/app/src/"; then
+            echo "Placeholder URL found in app source - refusing to build."
+            exit 1
+          fi
       - uses: actions/setup-node@v4
         with:
           node-version: 22
