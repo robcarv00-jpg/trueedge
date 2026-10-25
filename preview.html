@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TrueEdge — the master look</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background:linear-gradient(180deg,#051C40 0%,#03122F 40%,#020B20 100%); color:#F2F6FC; font-family:'Inter',system-ui,-apple-system,sans-serif; padding:28px 20px 44px; min-height:100vh; }
+  .mono { font-family:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace; }
+  .muted { color:#9DB2CE; } .faint { color:#5E7799; } .gold { color:#F0AE35; } .blue { color:#2F9DFF; }
+  .green { color:#4ADE80; }
+  .wrap { max-width:1060px; margin:0 auto; }
+  h2 { font-size:13px; letter-spacing:2px; text-transform:uppercase; color:#9DB2CE; margin:36px 0 14px; font-weight:700; font-style:italic; }
+  .disp { font-weight:800; font-style:italic; letter-spacing:-0.5px; }
+  .brand { display:flex; align-items:center; gap:20px; }
+  .wordmark { font-size:52px; }
+  .wordmark .edge { background:linear-gradient(180deg,#FFD968,#E79A1E); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .tagline { color:#9DB2CE; font-size:17px; margin-top:4px; }
+  .swoosh { margin-top:10px; }
+  .swatches { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:10px; }
+  .sw { border:1px solid #1D3A66; border-radius:12px; overflow:hidden; }
+  .sw .fill { height:52px; }
+  .sw .meta { padding:8px 10px; background:#0A2148; font-size:12px; line-height:1.5; }
+  .typebox { border:1px solid #1D3A66; border-radius:12px; background:#0A2148; padding:20px; line-height:1.3; }
+  .phones { display:flex; gap:22px; flex-wrap:wrap; }
+  .phone { width:332px; background:linear-gradient(180deg,#04183C,#03122F 30%); border:1px solid #2A4A7F; border-radius:38px; padding:14px 14px 8px; flex:none; }
+  .notch { width:110px; height:22px; background:#010814; border-radius:11px; margin:0 auto 10px; }
+  .bhead { display:flex; align-items:center; gap:10px; }
+  .bhead .wm { font-size:19px; }
+  .bhead .wm .edge { color:#F0AE35; }
+  .scr h3 { font-size:25px; margin:12px 0 2px; }
+  .sub { color:#9DB2CE; font-size:13.5px; line-height:1.45; }
+  .card { background:#0A2148; border:1px solid #1D3A66; border-radius:12px; padding:14px; margin-top:12px; }
+  .lbl { font-size:11px; letter-spacing:1.5px; text-transform:uppercase; color:#9DB2CE; margin:16px 0 2px; font-style:italic; font-weight:700; }
+  .axis { margin:10px 0; }
+  .axisrow { display:flex; justify-content:space-between; align-items:baseline; font-size:15px; }
+  .axisrow .mono { font-size:20px; }
+  .track { height:6px; background:#1D3A66; border-radius:3px; margin-top:6px; }
+  .fillbar { height:6px; border-radius:3px; }
+  .big { font-size:28px; }
+  .chip { display:inline-block; border:1px solid #9DB2CE; color:#9DB2CE; border-radius:4px; padding:1px 8px; font-size:11px; letter-spacing:1px; transform:skewX(-8deg); }
+  .chip.blue { border-color:#2F9DFF; color:#2F9DFF; }
+  .rowline { display:flex; justify-content:space-between; align-items:center; padding:3px 0; font-size:13.5px; }
+  .tabbar { display:flex; border-top:1px solid #1D3A66; margin-top:14px; padding-top:8px; }
+  .tabbar div { flex:1; text-align:center; font-size:13px; color:#9DB2CE; padding:6px 0; }
+  .tabbar div.on { color:#F0AE35; font-weight:700; font-style:italic; }
+  .sealbtn { background:linear-gradient(180deg,#C8891A,#A86E0F); color:#F2F6FC; font-weight:800; font-style:italic; text-align:center; border-radius:8px; padding:13px; font-size:16px; margin-top:12px; }
+  .sharebar { border:1px solid #1D3A66; border-radius:8px; text-align:center; padding:11px; font-size:13.5px; margin-top:10px; }
+  .receipt { font-family:'JetBrains Mono',ui-monospace,Menlo,monospace; font-size:12px; line-height:1.55; }
+  .receipt .rh { letter-spacing:1px; border-bottom:1px dashed #2A4A7F; padding-bottom:8px; margin-bottom:8px; }
+  .claim { color:#9DB2CE; margin:7px 0; }
+  .claim b { color:#4ADE80; font-weight:400; }
+  .tiers { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:12px; }
+  .tier { background:#0A2148; border:1px solid #1D3A66; border-radius:12px; padding:16px; }
+  .tier.pro { border-color:#F0AE35; }
+  .tier h4 { font-size:20px; display:flex; justify-content:space-between; align-items:baseline; }
+  .tier h4 .mono { font-size:13px; color:#9DB2CE; }
+  .tier li { color:#9DB2CE; font-size:14px; list-style:none; margin-top:6px; }
+  .prog { height:6px; background:#1D3A66; border-radius:3px; margin-top:8px; }
+  .footnote { color:#5E7799; font-size:12.5px; margin-top:26px; line-height:1.6; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="brand">
+    <svg width="86" height="86" viewBox="0 0 128 128" aria-label="TrueEdge icon">
+      <rect width="128" height="128" rx="26" fill="#03122F"/>
+      <text x="20" y="76" font-family="Arial, sans-serif" font-size="47" font-weight="900" font-style="italic" fill="#DCE6F2">TE</text>
+      <polygon points="76,58 96,34 118,28 112,52 98,66" fill="#F0AE35"/>
+      <path d="M 10 96 Q 64 118 118 92" fill="none" stroke="#2F9DFF" stroke-width="6"/>
+    </svg>
+    <div>
+      <div class="wordmark disp">TRUE <span class="edge">EDGE</span></div>
+      <div class="tagline">The app wears the logo — navy, electric blue, silver, gold.</div>
+    </div>
+  </div>
+  <svg class="swoosh" width="420" height="18" viewBox="0 0 420 18"><path d="M2 14 Q 210 -6 418 10" fill="none" stroke="#2F9DFF" stroke-width="4"/></svg>
+
+  <h2>Palette — pulled from the master emblem, contrast-audited</h2>
+  <div class="swatches">
+    <div class="sw"><div class="fill" style="background:#03122F;"></div><div class="meta"><b>Navy</b> · #03122F<br><span class="faint">the field</span></div></div>
+    <div class="sw"><div class="fill" style="background:#0A2148;"></div><div class="meta"><b>Surface</b> · #0A2148<br><span class="faint">cards</span></div></div>
+    <div class="sw"><div class="fill" style="background:#F0AE35;"></div><div class="meta"><b>Gold</b> · #F0AE35<br><span class="faint">9.6:1 AAA · Discipline, actions</span></div></div>
+    <div class="sw"><div class="fill" style="background:#2F9DFF;"></div><div class="meta"><b>Electric blue</b> · #2F9DFF<br><span class="faint">AA · Skill, swoosh, links</span></div></div>
+    <div class="sw"><div class="fill" style="background:#F2F6FC;"></div><div class="meta"><b>Silver</b> · #F2F6FC<br><span class="faint">17.1:1 AAA · text</span></div></div>
+    <div class="sw"><div class="fill" style="background:#9DB2CE;"></div><div class="meta"><b>Blue-silver</b> · #9DB2CE<br><span class="faint">AAA · secondary text</span></div></div>
+  </div>
+
+  <h2>Type — the logo's voice: heavy italic display, mono numbers</h2>
+  <div class="typebox">
+    <div class="disp" style="font-size:39px;">Your profile, graded</div>
+    <div style="font-size:20px; margin-top:6px;">Skill is finding edge. <span class="gold">Discipline is keeping it.</span></div>
+    <div class="mono" style="font-size:20px; margin-top:10px;">CLV +1.38% · beat close 71% · Brier 0.200 · tilt 20/100</div>
+    <div class="faint" style="font-size:13px; margin-top:8px;">Headings 800 italic · body Inter · every number JetBrains Mono, tabular · semantic color: Skill = blue, Discipline = gold</div>
+  </div>
+
+  <h2>The app in the master look — same real demo data</h2>
+  <div class="phones">
+
+    <div class="phone"><div class="notch"></div><div class="scr">
+      <div class="bhead">
+        <svg width="34" height="34" viewBox="0 0 128 128"><rect width="128" height="128" rx="26" fill="#020B20"/><text x="20" y="76" font-family="Arial, sans-serif" font-size="47" font-weight="900" font-style="italic" fill="#DCE6F2">TE</text><polygon points="76,58 96,34 118,28 112,52 98,66" fill="#F0AE35"/><path d="M 10 96 Q 64 118 118 92" fill="none" stroke="#2F9DFF" stroke-width="6"/></svg>
+        <span class="wm disp">TRUE <span class="edge">EDGE</span></span>
+      </div>
+      <h3 class="disp">Your profile</h3>
+      <p class="sub">120 bets · demo journal — this is what the books see when they look at you.</p>
+      <div class="card">
+        <div class="axis"><div class="axisrow"><span>Skill — do you find edge</span><span class="mono">74</span></div>
+          <div class="track"><div class="fillbar" style="width:74%; background:#2F9DFF;"></div></div></div>
+        <div class="axis"><div class="axisrow"><span>Discipline — do you keep it</span><span class="mono">48</span></div>
+          <div class="track"><div class="fillbar" style="width:48%; background:#F0AE35;"></div></div></div>
+      </div>
+      <div class="card">
+        <div class="lbl" style="margin-top:0;">Closing line value</div>
+        <div class="mono big">+1.38%</div>
+        <p class="sub" style="margin-top:4px;">Beat the close 71% of graded bets (95% CI 61–80) · Brier 0.200 · price-cal gap +1.9 pts</p>
+      </div>
+      <div class="lbl">Leaks</div>
+      <div class="card" style="margin-top:4px;">
+        <div class="rowline"><span>Parlays</span><span class="chip">NOISE</span></div>
+        <div class="mono">−11.5% ROI · n=34</div>
+        <p class="sub">−10.3 units per 100 bets — unresolvable at your volume; that is a reason to cut it, not ignore it.</p>
+        <div class="rowline" style="margin-top:10px;"><span>Late bets (≤15 min)</span><span class="chip">NOISE</span></div>
+        <div class="mono">−14.9% ROI · n=48</div>
+        <p class="sub">Early spread/total bets: +6.5% ROI</p>
+        <p style="margin-top:10px; font-size:14.5px;">Tilt: 24 stake-escalations after a loss (20 per 100 bets)</p>
+      </div>
+      <div class="lbl">Price calibration</div>
+      <div class="card" style="margin-top:4px;">
+        <div class="rowline"><span class="mono">50–60%</span><span class="mono">n=55 · said 52% · hit 56%</span><span class="chip">NOISE</span></div>
+        <div class="rowline"><span class="mono">40–50%</span><span class="mono">n=18 · said 46% · hit 44%</span><span class="chip blue">INCONCLUSIVE</span></div>
+        <div class="rowline"><span class="mono">20–30%</span><span class="mono">n=13 · said 29% · hit 23%</span><span class="chip blue">INCONCLUSIVE</span></div>
+        <p class="faint" style="font-size:12px; margin-top:6px;">CIs are individual 95%, not family-wise.</p>
+      </div>
+      <div class="tabbar"><div class="on">Profile</div><div>Trend</div><div>Log</div><div>Seal</div><div>Plan</div></div>
+    </div></div>
+
+    <div class="phone"><div class="notch"></div><div class="scr">
+      <div class="bhead">
+        <svg width="34" height="34" viewBox="0 0 128 128"><rect width="128" height="128" rx="26" fill="#020B20"/><text x="20" y="76" font-family="Arial, sans-serif" font-size="47" font-weight="900" font-style="italic" fill="#DCE6F2">TE</text><polygon points="76,58 96,34 118,28 112,52 98,66" fill="#F0AE35"/><path d="M 10 96 Q 64 118 118 92" fill="none" stroke="#2F9DFF" stroke-width="6"/></svg>
+        <span class="wm disp">TRUE <span class="edge">EDGE</span></span>
+      </div>
+      <h3 class="disp">Seal your report</h3>
+      <p class="sub">Tamper-evident, rubric pinned inside the seal. Anyone with the link can check it — free, forever.</p>
+      <div class="sealbtn">Seal this report</div>
+      <div class="card receipt">
+        <div class="rh">CARVER RECEIPT ————————<br>
+        issuer: TrueEdge · subject: mirror-report<br>
+        merkle: 096a81b94340… · mode: hmac</div>
+        <div class="claim"><b>[OK]</b> c001 · Across 120 tracked bets the bettor's average closing line value was +1.38 percent.</div>
+        <div class="claim"><b>[OK]</b> c002 · The bettor beat the closing price in 71% of graded bets (95% CI 61% to 80%).</div>
+        <div class="claim"><b>[OK]</b> c003 · Parlays were 28% of volume and returned −11.5% ROI (n=34, tier noise).</div>
+        <div class="claim"><b>[OK]</b> c004 · Stake-escalation after a loss (tilt) appeared 24 times, 20 per 100 bets.</div>
+        <div class="claim"><b>[OK]</b> c005 · The bettor's Sharp Score under rubric v1.1 is 39 out of 99.</div>
+        <div style="border-top:1px dashed #2A4A7F; margin-top:8px; padding-top:8px;">
+          <span class="green">VERIFIED ✓ OK mode=hmac</span><br>
+          <span class="faint">score 39 recomputed OK under pinned rubric v1.1</span>
+        </div>
+      </div>
+      <div class="sharebar">Copy share link — anyone can verify, free</div>
+      <div class="lbl">Trend (Plus)</div>
+      <div class="card" style="margin-top:4px;">
+        <div class="mono" style="font-size:15px;">Skill 89 → 63 · Discipline 48 → 43</div>
+        <p class="sub" style="margin-top:4px;">40-bet windows · tilt 28 → 20 per 100 · week 1 is a baseline, not a verdict</p>
+      </div>
+      <div class="tabbar"><div>Profile</div><div>Trend</div><div>Log</div><div class="on">Seal</div><div>Plan</div></div>
+    </div></div>
+  </div>
+
+  <h2>The gate — free is who you are, paid is where you're improving</h2>
+  <div class="tiers">
+    <div class="tier"><h4 class="disp">Free <span class="mono">$0</span></h4>
+      <li>· CSV import</li><li>· Mirror profile</li><li>· Skill / Discipline score</li><li>· Price calibration</li></div>
+    <div class="tier"><h4 class="disp">Plus <span class="mono">$4.99/mo · $34.99/yr</span></h4>
+      <li>· Unlimited history</li><li>· Trend lines</li><li>· Live-leak tracking</li>
+      <p class="sub" style="margin-top:10px;">Your Pro tools activate as you log — de-bias sharpens at 30 sealed estimates. You have 12.</p>
+      <div class="prog"><div style="height:6px; background:#F0AE35; border-radius:3px; width:40%;"></div></div></div>
+    <div class="tier pro"><h4 class="disp">Pro <span class="mono">$14.99/mo · $89.99/yr</span></h4>
+      <li>· De-bias on your sealed numbers</li><li>· Attribution (at volume)</li><li>· Base-rate grading</li><li>· Report sealing — verification free for anyone, forever</li></div>
+  </div>
+
+  <p class="footnote">
+    The master look, applied end to end: colors sampled from Robert's master emblem and re-audited for
+    contrast (gold 9.6:1, silver 17.1:1, blue AA for large elements), headings in the wordmark's heavy
+    italic, the logo's two colors given jobs — blue is Skill, gold is Discipline. Layout discipline from
+    the original audit is unchanged: 8pt grid, 1px borders, mono numerals, 44pt touch floor. Implemented
+    in the app code (theme.ts + BrandHeader on every screen; typecheck clean). TrueEdge does not offer
+    wagering of any kind.
+  </p>
+</div>
+</body>
+</html>

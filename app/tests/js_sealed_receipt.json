@@ -1,0 +1,121 @@
+{
+  "issuer": "TrueEdge",
+  "subject": "mirror-report",
+  "created_at": "2026-10-25T14:47:54+00:00",
+  "claims": [
+    {
+      "id": "c001",
+      "text": "Across 120 tracked bets the bettor's average closing line value was +1.38 percent.",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "bet-journal export (demo, seed 7)",
+          "retrieved_at": "2026-10-25",
+          "independence": "primary",
+          "snippet": "",
+          "contradicts": false
+        }
+      ],
+      "stale_after_days": null,
+      "note": ""
+    },
+    {
+      "id": "c002",
+      "text": "The bettor beat the closing price in 71% of graded bets (95% CI 61% to 80%).",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "bet-journal export (demo, seed 7)",
+          "retrieved_at": "2026-10-25",
+          "independence": "primary",
+          "snippet": "",
+          "contradicts": false
+        }
+      ],
+      "stale_after_days": null,
+      "note": ""
+    },
+    {
+      "id": "c003",
+      "text": "Parlays were 28% of volume and returned -11.5% ROI (95% CI -81.9% to +82.4%, n=34, tier noise).",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "bet-journal export (demo, seed 7)",
+          "retrieved_at": "2026-10-25",
+          "independence": "primary",
+          "snippet": "",
+          "contradicts": false
+        }
+      ],
+      "stale_after_days": null,
+      "note": ""
+    },
+    {
+      "id": "c004",
+      "text": "Stake-escalation after a loss (tilt) appeared 24 times, 20 per 100 bets.",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "bet-journal export (demo, seed 7)",
+          "retrieved_at": "2026-10-25",
+          "independence": "primary",
+          "snippet": "",
+          "contradicts": false
+        }
+      ],
+      "stale_after_days": null,
+      "note": ""
+    },
+    {
+      "id": "c005",
+      "text": "The bettor's Sharp Score under rubric v1.1 is 39 out of 99.",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "bet-journal export (demo, seed 7)",
+          "retrieved_at": "2026-10-25",
+          "independence": "primary",
+          "snippet": "",
+          "contradicts": false
+        }
+      ],
+      "stale_after_days": null,
+      "note": ""
+    }
+  ],
+  "meta": {
+    "rubric": {
+      "name": "sharp_score",
+      "version": "1.1",
+      "weights": {
+        "base": 50,
+        "clv_coef": 6,
+        "clv_cap": 24,
+        "beat_coef": 40,
+        "beat_cap": 20,
+        "brier_threshold": 0.24,
+        "brier_coef": 100,
+        "brier_cap": 20,
+        "parlay_coef": 30,
+        "parlay_scale": 0.2,
+        "late_coef": 10,
+        "late_scale": 0.2,
+        "late_min_n": 10,
+        "tilt_coef": 0.75
+      },
+      "weights_sha": "4efbc28157153ab5227a5d49f8cda1cf666c5f9aad497468db69f070dfb6cb96"
+    },
+    "score": 39
+  },
+  "format": "carver-receipt/v1",
+  "merkle_root": "096a81b943407525c73001205d2b2cf9b4932d0fcb3501d3815b2817f9e5cd40",
+  "receipt_digest": "5bfc844077f13e5432c710a915a8dc8a29665906c4b68f9bb64eaeb508b3cca2",
+  "mode": "hmac",
+  "signature": "f4e391545a31ac2f004eb37267510356fbcf33a82933cf291a298ab0539dc000",
+  "public_key": "",
+  "summary": {
+    "total": 5,
+    "verified": 5
+  }
+}

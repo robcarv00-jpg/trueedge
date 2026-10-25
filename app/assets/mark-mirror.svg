@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <!-- TrueEdge mark — transparent background variant for in-app and
+       document use. Same geometry as assets/icon.svg.
+       Monochrome receipt variant: set every stroke to #0A0A0B. -->
+  <g fill="none" stroke="#E8B048" stroke-width="11">
+    <circle cx="64" cy="64" r="46"/>
+    <line x1="64" y1="18" x2="64" y2="110"/>
+    <line x1="18" y1="64" x2="110" y2="64"/>
+    <path d="M 33 31 Q 55 64 33 97"/>
+    <path d="M 95 31 Q 73 64 95 97"/>
+  </g>
+</svg>

@@ -1,0 +1,1322 @@
+[
+ {
+  "market": "total",
+  "odds": 100,
+  "mins": 1440,
+  "stake": 25.0,
+  "close": [
+   100,
+   100
+  ],
+  "won": false
+ },
+ {
+  "market": "spread",
+  "odds": 120,
+  "mins": 15,
+  "stake": 50.0,
+  "close": [
+   120,
+   100
+  ],
+  "won": true
+ },
+ {
+  "market": "spread",
+  "odds": 120,
+  "mins": 5,
+  "stake": 25.0,
+  "close": [
+   120,
+   100
+  ],
+  "won": false
+ },
+ {
+  "market": "prop",
+  "odds": -110,
+  "mins": 15,
+  "stake": 50.0,
+  "close": [
+   -115,
+   115
+  ],
+  "won": true
+ },
+ {
+  "market": "moneyline",
+  "odds": 120,
+  "mins": 1440,
+  "stake": 25.0,
+  "close": [
+   115,
+   100
+  ],
+  "won": false
+ },
+ {
+  "market": "spread",
+  "odds": 120,
+  "mins": 5,
+  "stake": 25.0,
+  "close": [
+   110,
+   100
+  ],
+  "won": false
+ },
+ {
+  "market": "prop",
+  "odds": -105,
+  "mins": 45,
+  "stake": 50.0,
+  "close": [
+   -105,
+   105
+  ],
+  "won": false
+ },
+ {
+  "market": "prop",
+  "odds": -105,
+  "mins": 1440,
+  "stake": 25.0,
+  "close": [
+   -120,
+   120
+  ],
+  "won": true
+ },
+ {
+  "market": "parlay",
+  "odds": 550,
+  "mins": 15,
+  "stake": 25.0,
+  "close": [
+   550,
+   100
+  ],
+  "won": false
+ },
+ {
+  "market": "spread",
+  "odds": 120,
+  "mins": 720,
+  "stake": 25.0,
+  "close": [
+   110,
+   100
+  ],
+  "won": true
+ },
+ {
+  "market": "prop",
+  "odds": -110,
+  "mins": 5,
+  "stake": 25.0,
+  "close": [
+   -110,
+   110
+  ],
+  "won": true
+ },
+ {
+  "market": "parlay",
+  "odds": 900,
+  "mins": 45,
+  "stake": 25.0,
+  "close": [
+   900,
+   100
+  ],
+  "won": false
+ },
+ {
+  "market": "moneyline",
+  "odds": 250,
+  "mins": 180,
+  "stake": 25.0,
+  "close": [
+   240,
+   100
+  ],
+  "won": false
+ },
+ {
+  "market": "parlay",
+  "odds": 300,
+  "mins": 180,
+  "stake": 50.0,
+  "close": [
+   300,
+   100
+  ],
+  "won": true
+ },
+ {
+  "market": "parlay",
+  "odds": 550,
+  "mins": 180,
+  "stake": 25.0,
+  "close": [
+   550,
+   100
+  ],
+  "won": false
+ },
+ {
+  "market": "total",
+  "odds": 100,
+  "mins": 720,
+  "stake": 50.0,
+  "close": [
+   85,
+   100
+  ],
+  "won": true
+ },
+ {
+  "market": "total",
+  "odds": -110,
+  "mins": 15,
+  "stake": 25.0,
+  "close": [
+   -110,
+   110
+  ],
+  "won": false
+ },
+ {
+  "market": "total",
+  "odds": -105,
+  "mins": 45,
+  "stake": 50.0,
+  "close": [
+   -115,
+   115
+  ],
+  "won": true
+ },
+ {
+  "market": "spread",
+  "odds": 100,
+  "mins": 1440,
+  "stake": 25.0,
+  "close": [
+   85,
+   100
+  ],
+  "won": true
+ },
+ {
+  "market": "prop",
+  "odds": 250,
+  "mins": 180,
+  "stake": 25.0,
+  "close": [
+   245,
+   100
+  ],
+  "won": true
+ },
+ {
+  "market": "spread",
+  "odds": -105,
+  "mins": 720,
+  "stake": 25.0,
+  "close": [
+   -110,
+   110
+  ],
+  "won": true
+ },
+ {
+  "market": "moneyline",
+  "odds": 120,
+  "mins": 5,
+  "stake": 25.0,
+  "close": [
+   105,
+   100
+  ],
+  "won": true
+ },
+ {
+  "market": "parlay",
+  "odds": 550,
+  "mins": 45,
+  "stake": 25.0,
+  "close": [
+   550,
+   100
+  ],
+  "won": false
+ },
+ {
+  "market": "parlay",
+  "odds": 550,
+  "mins": 180,
+  "stake": 25.0,
+  "close": [
+   550,
+   100
+  ],
+  "won": false
+ },
+ {
+  "market": "moneyline",
+  "odds": 100,
+  "mins": 1440,
+  "stake": 50.0,
+  "close": [
+   90,
+   100
+  ],
+  "won": false
+ },
+ {
+  "market": "parlay",
+  "odds": 900,
+  "mins": 5,
+  "stake": 25.0,
+  "close": [
+   900,
+   100
+  ],
+  "won": false
+ },
+ {
+  "market": "parlay",
+  "odds": 550,
+  "mins": 720,
+  "stake": 25.0,
+  "close": [
+   550,
+   100
+  ],
+  "won": false
+ },
+ {
+  "market": "moneyline",
+  "odds": 250,
+  "mins": 15,
+  "stake": 25.0,
+  "close": [
+   245,
+   100
+  ],
+  "won": false
+ },
+ {
+  "market": "prop",
+  "odds": 250,
+  "mins": 15,
+  "stake": 50.0,
+  "close": [
+   250,
+   100
+  ],
+  "won": false
+ },
+ {
+  "market": "prop",
+  "odds": -105,
+  "mins": 15,
+  "stake": 25.0,
+  "close": [
+   -115,
+   115
+  ],
+  "won": true
+ },
+ {
+  "market": "moneyline",
+  "odds": -110,
+  "mins": 15,
+  "stake": 25.0,
+  "close": [
+   -120,
+   120
+  ],
+  "won": true
+ },
+ {
+  "market": "parlay",
+  "odds": 900,
+  "mins": 720,
+  "stake": 25.0,
+  "close": [
+   900,
+   100
+  ],
+  "won": false
+ },
+ {
+  "market": "spread",
+  "odds": 250,
+  "mins": 5,
+  "stake": 25.0,
+  "close": [
+   235,
+   100
+  ],
+  "won": false
+ },
+ {
+  "market": "prop",
+  "odds": 250,
+  "mins": 45,
+  "stake": 50.0,
+  "close": [
+   235,
+   100
+  ],
+  "won": false
+ },
+ {
+  "market": "spread",
+  "odds": 250,
+  "mins": 15,
+  "stake": 50.0,
+  "close": [
+   235,
+   100
+  ],
+  "won": true
+ },
+ {
+  "market": "total",
+  "odds": 120,
+  "mins": 720,
+  "stake": 25.0,
+  "close": [
+   110,
+   100
+  ],
+  "won": false
+ },
+ {
+  "market": "parlay",
+  "odds": 900,
+  "mins": 15,
+  "stake": 50.0,
+  "close": [
+   900,
+   100
+  ],
+  "won": false
+ },
+ {
+  "market": "parlay",
+  "odds": 900,
+  "mins": 15,
+  "stake": 25.0,
+  "close": [
+   900,
+   100
+  ],
+  "won": false
+ },
+ {
+  "market": "parlay",
+  "odds": 550,
+  "mins": 15,
+  "stake": 50.0,
+  "close": [
+   550,
+   100
+  ],
+  "won": false
+ },
+ {
+  "market": "prop",
+  "odds": -115,
+  "mins": 5,
+  "stake": 25.0,
+  "close": [
+   -130,
+   130
+  ],
+  "won": true
+ },
+ {
+  "market": "total",
+  "odds": 120,
+  "mins": 15,
+  "stake": 25.0,
+  "close": [
+   105,
+   100
+  ],
+  "won": true
+ },
+ {
+  "market": "spread",
+  "odds": -115,
+  "mins": 15,
+  "stake": 25.0,
+  "close": [
+   -115,
+   115
+  ],
+  "won": false
+ },
+ {
+  "market": "moneyline",
+  "odds": 250,
+  "mins": 720,
+  "stake": 25.0,
+  "close": [
+   250,
+   100
+  ],
+  "won": false
+ },
+ {
+  "market": "parlay",
+  "odds": 550,
+  "mins": 5,
+  "stake": 25.0,
+  "close": [
+   550,
+   100
+  ],
+  "won": false
+ },
+ {
+  "market": "spread",
+  "odds": 100,
+  "mins": 45,
+  "stake": 25.0,
+  "close": [
+   90,
+   100
+  ],
+  "won": false
+ },
+ {
+  "market": "prop",
+  "odds": 120,
+  "mins": 15,
+  "stake": 25.0,
+  "close": [
+   110,
+   100
+  ],
+  "won": false
+ },
+ {
+  "market": "total",
+  "odds": 100,
+  "mins": 15,
+  "stake": 25.0,
+  "close": [
+   95,
+   100
+  ],
+  "won": true
+ },
+ {
+  "market": "total",
+  "odds": 250,
+  "mins": 45,
+  "stake": 25.0,
+  "close": [
+   245,
+   100
+  ],
+  "won": false
+ },
+ {
+  "market": "moneyline",
+  "odds": -115,
+  "mins": 45,
+  "stake": 25.0,
+  "close": [
+   -115,
+   115
+  ],
+  "won": true
+ },
+ {
+  "market": "prop",
+  "odds": -115,
+  "mins": 1440,
+  "stake": 25.0,
+  "close": [
+   -130,
+   130
+  ],
+  "won": true
+ },
+ {
+  "market": "prop",
+  "odds": -105,
+  "mins": 180,
+  "stake": 25.0,
+  "close": [
+   -115,
+   115
+  ],
+  "won": true
+ },
+ {
+  "market": "parlay",
+  "odds": 900,
+  "mins": 180,
+  "stake": 25.0,
+  "close": [
+   900,
+   100
+  ],
+  "won": true
+ },
+ {
+  "market": "moneyline",
+  "odds": 120,
+  "mins": 5,
+  "stake": 25.0,
+  "close": [
+   115,
+   100
+  ],
+  "won": false
+ },
+ {
+  "market": "spread",
+  "odds": -110,
+  "mins": 45,
+  "stake": 50.0,
+  "close": [
+   -115,
+   115
+  ],
+  "won": true
+ },
+ {
+  "market": "moneyline",
+  "odds": 100,
+  "mins": 15,
+  "stake": 25.0,
+  "close": [
+   85,
+   100
+  ],
+  "won": false
+ },
+ {
+  "market": "spread",
+  "odds": -105,
+  "mins": 5,
+  "stake": 25.0,
+  "close": [
+   -115,
+   115
+  ],
+  "won": false
+ },
+ {
+  "market": "spread",
+  "odds": -105,
+  "mins": 5,
+  "stake": 25.0,
+  "close": [
+   -105,
+   105
+  ],
+  "won": true
+ },
+ {
+  "market": "moneyline",
+  "odds": 120,
+  "mins": 180,
+  "stake": 25.0,
+  "close": [
+   115,
+   100
+  ],
+  "won": true
+ },
+ {
+  "market": "parlay",
+  "odds": 900,
+  "mins": 15,
+  "stake": 25.0,
+  "close": [
+   900,
+   100
+  ],
+  "won": false
+ },
+ {
+  "market": "total",
+  "odds": -115,
+  "mins": 45,
+  "stake": 25.0,
+  "close": [
+   -130,
+   130
+  ],
+  "won": true
+ },
+ {
+  "market": "total",
+  "odds": -105,
+  "mins": 45,
+  "stake": 25.0,
+  "close": [
+   -105,
+   105
+  ],
+  "won": false
+ },
+ {
+  "market": "parlay",
+  "odds": 900,
+  "mins": 720,
+  "stake": 25.0,
+  "close": [
+   900,
+   100
+  ],
+  "won": false
+ },
+ {
+  "market": "spread",
+  "odds": 250,
+  "mins": 1440,
+  "stake": 25.0,
+  "close": [
+   235,
+   100
+  ],
+  "won": false
+ },
+ {
+  "market": "moneyline",
+  "odds": 250,
+  "mins": 15,
+  "stake": 25.0,
+  "close": [
+   245,
+   100
+  ],
+  "won": false
+ },
+ {
+  "market": "moneyline",
+  "odds": -110,
+  "mins": 15,
+  "stake": 50.0,
+  "close": [
+   -125,
+   125
+  ],
+  "won": false
+ },
+ {
+  "market": "parlay",
+  "odds": 300,
+  "mins": 1440,
+  "stake": 25.0,
+  "close": [
+   300,
+   100
+  ],
+  "won": false
+ },
+ {
+  "market": "total",
+  "odds": 250,
+  "mins": 45,
+  "stake": 50.0,
+  "close": [
+   250,
+   100
+  ],
+  "won": true
+ },
+ {
+  "market": "moneyline",
+  "odds": 120,
+  "mins": 45,
+  "stake": 25.0,
+  "close": [
+   110,
+   100
+  ],
+  "won": false
+ },
+ {
+  "market": "parlay",
+  "odds": 300,
+  "mins": 5,
+  "stake": 50.0,
+  "close": [
+   300,
+   100
+  ],
+  "won": false
+ },
+ {
+  "market": "total",
+  "odds": 120,
+  "mins": 5,
+  "stake": 50.0,
+  "close": [
+   120,
+   100
+  ],
+  "won": true
+ },
+ {
+  "market": "moneyline",
+  "odds": -105,
+  "mins": 1440,
+  "stake": 25.0,
+  "close": [
+   -110,
+   110
+  ],
+  "won": false
+ },
+ {
+  "market": "prop",
+  "odds": -105,
+  "mins": 1440,
+  "stake": 25.0,
+  "close": [
+   -110,
+   110
+  ],
+  "won": false
+ },
+ {
+  "market": "parlay",
+  "odds": 900,
+  "mins": 720,
+  "stake": 25.0,
+  "close": [
+   900,
+   100
+  ],
+  "won": false
+ },
+ {
+  "market": "parlay",
+  "odds": 900,
+  "mins": 720,
+  "stake": 25.0,
+  "close": [
+   900,
+   100
+  ],
+  "won": true
+ },
+ {
+  "market": "total",
+  "odds": -110,
+  "mins": 5,
+  "stake": 25.0,
+  "close": [
+   -110,
+   110
+  ],
+  "won": false
+ },
+ {
+  "market": "prop",
+  "odds": 120,
+  "mins": 5,
+  "stake": 25.0,
+  "close": [
+   105,
+   100
+  ],
+  "won": false
+ },
+ {
+  "market": "prop",
+  "odds": -110,
+  "mins": 1440,
+  "stake": 25.0,
+  "close": [
+   -110,
+   110
+  ],
+  "won": true
+ },
+ {
+  "market": "prop",
+  "odds": -105,
+  "mins": 5,
+  "stake": 25.0,
+  "close": [
+   -110,
+   110
+  ],
+  "won": true
+ },
+ {
+  "market": "parlay",
+  "odds": 900,
+  "mins": 180,
+  "stake": 25.0,
+  "close": [
+   900,
+   100
+  ],
+  "won": false
+ },
+ {
+  "market": "moneyline",
+  "odds": -110,
+  "mins": 720,
+  "stake": 25.0,
+  "close": [
+   -120,
+   120
+  ],
+  "won": false
+ },
+ {
+  "market": "moneyline",
+  "odds": 120,
+  "mins": 720,
+  "stake": 50.0,
+  "close": [
+   120,
+   100
+  ],
+  "won": false
+ },
+ {
+  "market": "prop",
+  "odds": -105,
+  "mins": 1440,
+  "stake": 25.0,
+  "close": [
+   -105,
+   105
+  ],
+  "won": true
+ },
+ {
+  "market": "total",
+  "odds": -105,
+  "mins": 5,
+  "stake": 25.0,
+  "close": [
+   -120,
+   120
+  ],
+  "won": true
+ },
+ {
+  "market": "parlay",
+  "odds": 900,
+  "mins": 180,
+  "stake": 25.0,
+  "close": [
+   900,
+   100
+  ],
+  "won": false
+ },
+ {
+  "market": "total",
+  "odds": -110,
+  "mins": 720,
+  "stake": 50.0,
+  "close": [
+   -120,
+   120
+  ],
+  "won": true
+ },
+ {
+  "market": "parlay",
+  "odds": 900,
+  "mins": 720,
+  "stake": 25.0,
+  "close": [
+   900,
+   100
+  ],
+  "won": false
+ },
+ {
+  "market": "prop",
+  "odds": 100,
+  "mins": 180,
+  "stake": 50.0,
+  "close": [
+   85,
+   100
+  ],
+  "won": false
+ },
+ {
+  "market": "total",
+  "odds": 100,
+  "mins": 45,
+  "stake": 25.0,
+  "close": [
+   90,
+   100
+  ],
+  "won": true
+ },
+ {
+  "market": "prop",
+  "odds": -110,
+  "mins": 15,
+  "stake": 25.0,
+  "close": [
+   -120,
+   120
+  ],
+  "won": false
+ },
+ {
+  "market": "spread",
+  "odds": 100,
+  "mins": 180,
+  "stake": 25.0,
+  "close": [
+   85,
+   100
+  ],
+  "won": true
+ },
+ {
+  "market": "spread",
+  "odds": -105,
+  "mins": 5,
+  "stake": 25.0,
+  "close": [
+   -110,
+   110
+  ],
+  "won": false
+ },
+ {
+  "market": "parlay",
+  "odds": 550,
+  "mins": 180,
+  "stake": 25.0,
+  "close": [
+   550,
+   100
+  ],
+  "won": false
+ },
+ {
+  "market": "spread",
+  "odds": 250,
+  "mins": 180,
+  "stake": 25.0,
+  "close": [
+   250,
+   100
+  ],
+  "won": false
+ },
+ {
+  "market": "parlay",
+  "odds": 900,
+  "mins": 180,
+  "stake": 25.0,
+  "close": [
+   900,
+   100
+  ],
+  "won": false
+ },
+ {
+  "market": "spread",
+  "odds": 120,
+  "mins": 15,
+  "stake": 50.0,
+  "close": [
+   110,
+   100
+  ],
+  "won": true
+ },
+ {
+  "market": "moneyline",
+  "odds": 100,
+  "mins": 1440,
+  "stake": 25.0,
+  "close": [
+   85,
+   100
+  ],
+  "won": false
+ },
+ {
+  "market": "parlay",
+  "odds": 900,
+  "mins": 15,
+  "stake": 50.0,
+  "close": [
+   900,
+   100
+  ],
+  "won": false
+ },
+ {
+  "market": "prop",
+  "odds": -105,
+  "mins": 180,
+  "stake": 25.0,
+  "close": [
+   -110,
+   110
+  ],
+  "won": true
+ },
+ {
+  "market": "spread",
+  "odds": -105,
+  "mins": 15,
+  "stake": 25.0,
+  "close": [
+   -110,
+   110
+  ],
+  "won": false
+ },
+ {
+  "market": "prop",
+  "odds": 100,
+  "mins": 180,
+  "stake": 25.0,
+  "close": [
+   100,
+   100
+  ],
+  "won": true
+ },
+ {
+  "market": "moneyline",
+  "odds": -115,
+  "mins": 1440,
+  "stake": 25.0,
+  "close": [
+   -120,
+   120
+  ],
+  "won": false
+ },
+ {
+  "market": "parlay",
+  "odds": 300,
+  "mins": 180,
+  "stake": 25.0,
+  "close": [
+   300,
+   100
+  ],
+  "won": false
+ },
+ {
+  "market": "spread",
+  "odds": -115,
+  "mins": 5,
+  "stake": 25.0,
+  "close": [
+   -130,
+   130
+  ],
+  "won": false
+ },
+ {
+  "market": "parlay",
+  "odds": 550,
+  "mins": 720,
+  "stake": 25.0,
+  "close": [
+   550,
+   100
+  ],
+  "won": false
+ },
+ {
+  "market": "parlay",
+  "odds": 300,
+  "mins": 15,
+  "stake": 25.0,
+  "close": [
+   300,
+   100
+  ],
+  "won": false
+ },
+ {
+  "market": "prop",
+  "odds": -110,
+  "mins": 720,
+  "stake": 25.0,
+  "close": [
+   -110,
+   110
+  ],
+  "won": true
+ },
+ {
+  "market": "moneyline",
+  "odds": -115,
+  "mins": 1440,
+  "stake": 25.0,
+  "close": [
+   -115,
+   115
+  ],
+  "won": false
+ },
+ {
+  "market": "parlay",
+  "odds": 550,
+  "mins": 720,
+  "stake": 25.0,
+  "close": [
+   550,
+   100
+  ],
+  "won": false
+ },
+ {
+  "market": "spread",
+  "odds": -110,
+  "mins": 720,
+  "stake": 50.0,
+  "close": [
+   -115,
+   115
+  ],
+  "won": false
+ },
+ {
+  "market": "total",
+  "odds": 120,
+  "mins": 15,
+  "stake": 50.0,
+  "close": [
+   120,
+   100
+  ],
+  "won": false
+ },
+ {
+  "market": "parlay",
+  "odds": 550,
+  "mins": 1440,
+  "stake": 25.0,
+  "close": [
+   550,
+   100
+  ],
+  "won": false
+ },
+ {
+  "market": "moneyline",
+  "odds": -115,
+  "mins": 180,
+  "stake": 50.0,
+  "close": [
+   -130,
+   130
+  ],
+  "won": true
+ },
+ {
+  "market": "parlay",
+  "odds": 550,
+  "mins": 1440,
+  "stake": 25.0,
+  "close": [
+   550,
+   100
+  ],
+  "won": true
+ },
+ {
+  "market": "total",
+  "odds": -105,
+  "mins": 15,
+  "stake": 25.0,
+  "close": [
+   -115,
+   115
+  ],
+  "won": true
+ },
+ {
+  "market": "parlay",
+  "odds": 900,
+  "mins": 180,
+  "stake": 25.0,
+  "close": [
+   900,
+   100
+  ],
+  "won": false
+ },
+ {
+  "market": "spread",
+  "odds": 120,
+  "mins": 15,
+  "stake": 25.0,
+  "close": [
+   115,
+   100
+  ],
+  "won": true
+ },
+ {
+  "market": "spread",
+  "odds": -115,
+  "mins": 180,
+  "stake": 25.0,
+  "close": [
+   -125,
+   125
+  ],
+  "won": false
+ },
+ {
+  "market": "spread",
+  "odds": -115,
+  "mins": 45,
+  "stake": 50.0,
+  "close": [
+   -130,
+   130
+  ],
+  "won": true
+ },
+ {
+  "market": "parlay",
+  "odds": 900,
+  "mins": 1440,
+  "stake": 25.0,
+  "close": [
+   900,
+   100
+  ],
+  "won": false
+ },
+ {
+  "market": "total",
+  "odds": -110,
+  "mins": 5,
+  "stake": 50.0,
+  "close": [
+   -110,
+   110
+  ],
+  "won": true
+ }
+]

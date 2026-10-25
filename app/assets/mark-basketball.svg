@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <!-- TrueEdge app icon — LOCKED 2026-10-25 (Robert).
+       Basketball-seamed ball; the vertical seam is the mirror line.
+       Background fills the full canvas (iOS masks the corners).
+       Seams are ~88px at the 1024 base — above the 53px legibility
+       floor from design_audit.py, so the mark survives 29px. -->
+  <rect width="1024" height="1024" fill="#0A0A0B"/>
+  <g fill="none" stroke="#E8B048" stroke-width="88">
+    <circle cx="512" cy="512" r="368"/>
+    <line x1="512" y1="144" x2="512" y2="880"/>
+    <line x1="144" y1="512" x2="880" y2="512"/>
+    <path d="M 264 248 Q 440 512 264 776"/>
+    <path d="M 760 248 Q 584 512 760 776"/>
+  </g>
+</svg>

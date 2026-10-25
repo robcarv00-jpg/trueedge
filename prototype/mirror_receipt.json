@@ -1,0 +1,122 @@
+{
+  "issuer": "Carver Sharp Mirror",
+  "subject": "mirror-report",
+  "created_at": "2026-10-25T14:47:54+00:00",
+  "claims": [
+    {
+      "id": "c001",
+      "text": "Across 120 tracked bets the bettor's average closing line value was +1.38 percent.",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "bet-journal export (demo, seed 7)",
+          "retrieved_at": "2026-10-25",
+          "independence": "primary",
+          "snippet": "",
+          "contradicts": false
+        }
+      ],
+      "stale_after_days": null,
+      "note": ""
+    },
+    {
+      "id": "c002",
+      "text": "The bettor beat the closing price in 71% of graded bets (95% CI 61% to 80%).",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "bet-journal export (demo, seed 7)",
+          "retrieved_at": "2026-10-25",
+          "independence": "primary",
+          "snippet": "",
+          "contradicts": false
+        }
+      ],
+      "stale_after_days": null,
+      "note": ""
+    },
+    {
+      "id": "c003",
+      "text": "Parlays were 28% of volume and returned -11.5% ROI (95% CI -82.4% to +74.3%, n=34, tier noise).",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "bet-journal export (demo, seed 7)",
+          "retrieved_at": "2026-10-25",
+          "independence": "primary",
+          "snippet": "",
+          "contradicts": false
+        }
+      ],
+      "stale_after_days": null,
+      "note": ""
+    },
+    {
+      "id": "c004",
+      "text": "Stake-escalation after a loss (tilt) appeared 24 times, 20 per 100 bets.",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "bet-journal export (demo, seed 7)",
+          "retrieved_at": "2026-10-25",
+          "independence": "primary",
+          "snippet": "",
+          "contradicts": false
+        }
+      ],
+      "stale_after_days": null,
+      "note": ""
+    },
+    {
+      "id": "c005",
+      "text": "The bettor's Sharp Score under rubric v1.1 is 39 out of 99.",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "bet-journal export (demo, seed 7)",
+          "retrieved_at": "2026-10-25",
+          "independence": "primary",
+          "snippet": "",
+          "contradicts": false
+        }
+      ],
+      "stale_after_days": null,
+      "note": ""
+    }
+  ],
+  "meta": {
+    "rubric": {
+      "name": "sharp_score",
+      "version": "1.1",
+      "weights": {
+        "base": 50,
+        "clv_coef": 6,
+        "clv_cap": 24,
+        "beat_coef": 40,
+        "beat_cap": 20,
+        "brier_threshold": 0.24,
+        "brier_coef": 100,
+        "brier_cap": 20,
+        "parlay_coef": 30,
+        "parlay_scale": 0.2,
+        "late_coef": 10,
+        "late_scale": 0.2,
+        "late_min_n": 10,
+        "tilt_coef": 0.75
+      },
+      "formula_sha": "e312f6ba77c6ddc5394dbe338e3c01ef9634cf1a1ead6c59b39a37bb71ac837d",
+      "code_sha": "6b9f06fb01c1e0004180e4602a5541a3f7c59ec22291b5ae9b957492ea69b4d4"
+    },
+    "score": 39
+  },
+  "format": "carver-receipt/v1",
+  "merkle_root": "d1eb60313663918b4a21dfbae16088bdb2bacf87dc8f455b0d30d4ec57ec876d",
+  "receipt_digest": "7537199a60925512416d233c2d8680c123a4dd850ed76b336c1c189953868049",
+  "mode": "hmac",
+  "signature": "e675ed1d5f87f8e963a7797061c517d39482aedfdc6cdbb879c50e325834b6b1",
+  "public_key": "",
+  "summary": {
+    "total": 5,
+    "verified": 5
+  }
+}
